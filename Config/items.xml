@@ -1,0 +1,7 @@
+<HellsJanitor>
+
+	<set xpath="//item[starts-with(@name,'meleeHandZombie')]/property[@class='Action0']//property[@name='DamageEntity']/@value">999999</set>
+	<set xpath="//item[starts-with(@name,'meleeHandAnimal')]/property[@class='Action0']//property[@name='DamageEntity']/@value">999999</set>
+	<set xpath="//item[starts-with(@name,'ammoProjectileZombie')]/property[@class='Action1']//property[@name='DamageEntity']/@value">999999</set>
+
+</HellsJanitor>
