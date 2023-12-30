@@ -12,3 +12,6 @@ The download .zip file contains a folder called `\Mods`. You can either:
 When this modlet is installed, it will cause any enemy to be able to kill your player with one hit.
 
 All other damage should work as normal.
+
+### Changes
+Added 2 kill counters, one for kills since last death, and one for kills total.
