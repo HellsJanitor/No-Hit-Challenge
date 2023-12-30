@@ -1,0 +1,9 @@
+<HellsJanitor>
+	<!-- *** set zombie dogs and bears to "Zombie" *** -->
+	<insertafter xpath="/entity_classes/entity_class[@name='animalZombieDog']/property[@name='Class']">
+        <property name="EntityType" value="Zombie"/>
+	</insertafter>
+	<insertbefore xpath="/entity_classes/entity_class[@name='animalZombieBear']/property[@name='UserSpawnType']">
+        <property name="EntityType" value="Zombie"/>
+	</insertbefore>
+</HellsJanitor>

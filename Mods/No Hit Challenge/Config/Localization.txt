@@ -1,0 +1,10 @@
+Key,english
+buffDeathCounterDesc,"This is how many times you've died in this playthrough."
+buffDeathCounterName," "
+buffKillCounterName," "
+buffKillCounterDesc,"Number of enemies killed since last death ..."
+buffKillCounterPermName," "
+buffKillCounterPermDesc,"Total number of zombies killed in this playthrough."
+buffOneHitKillTriggerName,"One hit, instant death ..."
+buffOneHitKillTriggerDesc,"If you get hit by ANY enemy, you'll instantly die!"
+buffOneHitKillTriggerTip,"If you get hit by ANY enemy, you'll instantly die!"

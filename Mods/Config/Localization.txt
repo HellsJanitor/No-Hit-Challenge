@@ -1,5 +1,0 @@
-Key,english
-buffKillCounterDesc,"This is how many times you've died."
-buffKillCounterName,"Deaths"
-buffOneHitKillTriggerName,"One hit, instant death ..."
-buffOneHitKillTriggerDesc,"If you get hit by ANY enemy, you'll instantly die!"
