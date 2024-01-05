@@ -28,7 +28,7 @@
 		
 	</buff>
 	
-	<buff name="buffDeathCounter" name_key="buffDeathCounterName" description_key="buffDeathCounterDesc" showonhud="true" icon="ui_game_symbol_skull" icon_color="212,0,0">		
+	<!-- <buff name="buffDeathCounter" name_key="buffDeathCounterName" description_key="buffDeathCounterDesc" showonhud="true" icon="ui_game_symbol_skull" icon_color="212,0,0">		
 		<duration value="0"/>		
 		<display_value value="deathcounter"/>
 		<display_value_key value="Deaths: {0}"/>
@@ -42,9 +42,9 @@
 			<triggered_effect trigger="onSelfDied" action="ModifyCVar" cvar="deathcounter" operation="add" value="1"/>
 		</effect_group>		
 		
-	</buff>
+	</buff> -->
 	
-	<buff name="buffKillCounter" name_key="buffKillCounterName" description_key="buffKillCounterDesc" showonhud="true" icon="ui_game_symbol_head_shot" icon_color="0,255,0">		
+	<!-- <buff name="buffKillCounter" name_key="buffKillCounterName" description_key="buffKillCounterDesc" showonhud="true" icon="ui_game_symbol_head_shot" icon_color="0,255,0">		
 		<duration value="0"/>		
 		<display_value value="killcounter"/>
 		<display_value_key value="Kills: {0}"/>
@@ -63,9 +63,9 @@
 		<effect_group>
 			<triggered_effect trigger="onSelfDied" action="ModifyCVar" cvar="killcounter" operation="set" value="0"/>
 		</effect_group>	
-	</buff>
+	</buff> -->
 	
-	<buff name="buffKillCounterPerm" name_key="buffKillCounterPermName" description_key="buffKillCounterPermDesc" showonhud="true" icon="ui_game_symbol_twitch_headshot" icon_color="0,128,0">		
+	<!-- <buff name="buffKillCounterPerm" name_key="buffKillCounterPermName" description_key="buffKillCounterPermDesc" showonhud="true" icon="ui_game_symbol_twitch_headshot" icon_color="0,128,0">		
 		<duration value="0"/>		
 		<display_value value="permkillcounter"/>
 		<display_value_key value="Kills total: {0}"/>
@@ -81,7 +81,7 @@
 			<requirement name="!EntityTagCompare" target="other" tags="snake"/>
 		</effect_group>			
 		
-	</buff>
+	</buff> -->
 	</append>
 
 	<append xpath="//buff[@name='buffStatusCheck01']/effect_group">
