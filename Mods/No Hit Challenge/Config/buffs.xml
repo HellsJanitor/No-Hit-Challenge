@@ -7,6 +7,7 @@
 	<remove xpath="/buffs/buff[@name='buffNearDeathRegen']/effect_group/passive_effect[@name='HealthChangeOT']"/> <!-- You may want this too?? -->
 	<remove xpath="/buffs/buff[@name='buffNearDeathProtection']/effect_group/passive_effect[@name='BuffResistance']"/> <!-- Removes invisible buff section that gives resistance to negative buffs -->
 
+	<!-- *** one hit kill trigger and damage *** -->
 	<append xpath="/buffs">
 	<buff name="buffOneHitKillTrigger" showonhud="true" name_key="buffOneHitKillTriggerName" description_key="buffOneHitKillTriggerDesc" tooltip_key="buffOneHitKillTriggerTip" icon="ui_game_symbol_zombie" icon_color="204,85,0" icon_blink="true">		
 		<duration value="0"/>		
@@ -16,7 +17,6 @@
 			<requirement name="EntityTagCompare" target="other" tags="entity,zombie,hostile"/>			
 			</triggered_effect>			
 		</effect_group>		
-		
 	</buff>
 	
 	<buff name="buffOneHitKill" hidden="true">		
@@ -25,10 +25,10 @@
 		<effect_group>			
 			<triggered_effect trigger="onSelfBuffStart" action="ModifyStats" stat="Health" operation="subtract" value="99999999"/>		
 		</effect_group>		
-		
 	</buff>
 	
-	<!-- <buff name="buffDeathCounter" name_key="buffDeathCounterName" description_key="buffDeathCounterDesc" showonhud="true" icon="ui_game_symbol_skull" icon_color="212,0,0">		
+	<!-- *** on screen death counter *** -->
+	<buff name="buffDeathCounter" name_key="buffDeathCounterName" description_key="buffDeathCounterDesc" showonhud="true" icon="ui_game_symbol_skull" icon_color="212,0,0">		
 		<duration value="0"/>		
 		<display_value value="deathcounter"/>
 		<display_value_key value="Deaths: {0}"/>
@@ -41,49 +41,37 @@
 		<effect_group>
 			<triggered_effect trigger="onSelfDied" action="ModifyCVar" cvar="deathcounter" operation="add" value="1"/>
 		</effect_group>		
-		
-	</buff> -->
+	</buff>
 	
-	<!-- <buff name="buffKillCounter" name_key="buffKillCounterName" description_key="buffKillCounterDesc" showonhud="true" icon="ui_game_symbol_head_shot" icon_color="0,255,0">		
+	<!-- *** on-screen permanent/total kills this map/playthrough *** -->
+	<buff name="buffKillCounterPerm" name_key="buffKillCounterPermName" description_key="buffKillCounterPermDesc" showonhud="true" icon="ui_game_symbol_twitch_headshot" icon_color="0,0,255">	
+		<duration value="0"/>		
+		<display_value value="_zombiekills"/>
+		<display_value_key value="Kills total: {0}"/>		
+	</buff>
+	
+	<!-- *** on-screen kills since last death (for non-permadeath players) *** -->
+	<buff name="buffKillCounter" name_key="buffKillCounterName" description_key="buffKillCounterDesc" showonhud="true" icon="ui_game_symbol_head_shot" icon_color="0,255,0">		
 		<duration value="0"/>		
 		<display_value value="killcounter"/>
-		<display_value_key value="Kills: {0}"/>
+		<display_value_key value="Kills: {0}"/>	
 		
-		<effect_group>			
-			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="killcounter" operation="set" value="0"/>
-			<requirement name="CVarCompare" cvar="killcounter" operation="Equals" value="0"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="killcounterreset" operation="set" value="@_zombiekills"/>
+		</effect_group>
+		<effect_group>
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="killcounterreset" operation="subtract" value="@_zombiekills"/>
+			<triggered_effect trigger="onSelfRespawn" action="ModifyCVar" cvar="killcounterreset" operation="subtract" value="@_zombiekills"/>			
 		</effect_group>
 		
 		<effect_group>
-			<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="killcounter" operation="add" value="1"/>
-			<requirement name="EntityTagCompare" target="other" tags="zombie,hostile"/>
-			<requirement name="!EntityTagCompare" target="other" tags="snake"/>
-		</effect_group>		
-		
-		<effect_group>
-			<triggered_effect trigger="onSelfDied" action="ModifyCVar" cvar="killcounter" operation="set" value="0"/>
-		</effect_group>	
-	</buff> -->
-	
-	<!-- <buff name="buffKillCounterPerm" name_key="buffKillCounterPermName" description_key="buffKillCounterPermDesc" showonhud="true" icon="ui_game_symbol_twitch_headshot" icon_color="0,128,0">		
-		<duration value="0"/>		
-		<display_value value="permkillcounter"/>
-		<display_value_key value="Kills total: {0}"/>
-		
-		<effect_group>			
-			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="permkillcounter" operation="set" value="0"/>
-			<requirement name="CVarCompare" cvar="permkillcounter" operation="Equals" value="0"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="killcounter" operation="set" value="@_zombiekills"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="killcounter" operation="subtract" value="@killcounterreset"/>
 		</effect_group>
-		
-		<effect_group>
-			<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="permkillcounter" operation="add" value="1"/>
-			<requirement name="EntityTagCompare" target="other" tags="zombie,hostile"/>
-			<requirement name="!EntityTagCompare" target="other" tags="snake"/>
-		</effect_group>			
-		
-	</buff> -->
+	</buff>		
 	</append>
 
+	<!-- *** adds relevant starting buffs *** -->
 	<append xpath="//buff[@name='buffStatusCheck01']/effect_group">
 		<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOneHitKillTrigger"/>
 		<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffDeathCounter"/>

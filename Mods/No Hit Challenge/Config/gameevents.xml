@@ -1,0 +1,3 @@
+<HellsJanitor>
+	<set xpath="/gameevents/action_sequence[@name='game_first_spawn']/action[@class='AddJournalTip']/property[@name='tip_name']/@value">OneHitKillSpawnText</set>
+</HellsJanitor>

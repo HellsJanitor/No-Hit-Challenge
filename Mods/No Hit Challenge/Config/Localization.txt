@@ -1,4 +1,6 @@
 Key,english
+OneHitKillSpawnText,"Put simply, any time an enemy hits you, you DIE.\n\n[00FF00]Important Points![-]\nThere are 4 icons on the screen.\n[00FF00]Kills[-] is kills since your last death.\n[0000FF]Kills total[-] is the number of kills for this game, regardless of deaths.\n[D40000]Deaths[-] is the number of deaths this game.\nThe flashing [CC5500]orange[-] zombie is to remind you that you're one hit from death!\n\na HUGE thanks to [FF0000]redbeardt[-] for the companion mod that makes this work.\n\nHave fun!!"
+OneHitKillSpawnText_title,"Welcome to the [FFC800]One Hit Kill[-] challenge!"
 buffDeathCounterDesc,"This is how many times you've died in this playthrough."
 buffDeathCounterName," "
 buffKillCounterName," "

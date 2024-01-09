@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<xml>
+	<Name value="CVarExposition" />
+	<DisplayName value="CVar Exposition"/>
+	<Description value="Exposes certain internal values as CVars for use in XML." />
+	<Author value="redbeardt" />
+	<Version value="1.0.0.0" />
+	<Website value="https://www.nexusmods.com/users/102102433" />
+</xml>
