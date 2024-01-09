@@ -17,3 +17,5 @@ All other damage should work as normal.
 Added 2 kill counters, one for kills since last death, and one for kills total.
 
 Removed kill counters and death counters as they're inaccurate and need reworking
+
+Added back fully functional kill counters and death counter.
