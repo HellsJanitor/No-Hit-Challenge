@@ -14,8 +14,8 @@ When this modlet is installed, it will cause any enemy to be able to kill your p
 All other damage should work as normal.
 
 ### Changes
-Added 2 kill counters, one for kills since last death, and one for kills total.
+~~Added 2 kill counters, one for kills since last death, and one for kills total.~~
 
-Removed kill counters and death counters as they're inaccurate and need reworking
+~~Removed kill counters and death counters as they're inaccurate and need reworking~~
 
-Added back fully functional kill counters and death counter.
+Added back fully functional kill counters and a death counter.
